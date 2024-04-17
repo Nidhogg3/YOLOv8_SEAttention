@@ -1,4 +1,3 @@
-​######################  CoordAtt  ####     start   by  AI&CV  ###############################
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -58,4 +57,4 @@ class CoordAtt(nn.Module):
         out = identity * a_w * a_h
 
         return out
-######################  CoordAtt  ####     end   by  AI&CV  ###############################
+

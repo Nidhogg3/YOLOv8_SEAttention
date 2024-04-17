@@ -49,7 +49,7 @@ from ultralytics.nn.modules import (
     Segment,
     WorldDetect,
 )
-from ultralytics.nn.SEAttention import SEAttention
+from ultralytics.nn import SEAttention, CoordAttention
 from ultralytics.utils import DEFAULT_CFG_DICT, DEFAULT_CFG_KEYS, LOGGER, colorstr, emojis, yaml_load
 from ultralytics.utils.checks import check_requirements, check_suffix, check_yaml
 from ultralytics.utils.loss import v8ClassificationLoss, v8DetectionLoss, v8OBBLoss, v8PoseLoss, v8SegmentationLoss
@@ -921,6 +921,9 @@ def parse_model(d, ch, verbose=True):  # model_dict, input_channels(3)
             args.insert(1, [ch[x] for x in f])
         elif m in {SEAttention}:
             args = [ch[f], *args]
+        elif m in {CoordAttention}:
+            args = [ch[f], *args]
+
         elif m is CBLinear:
             c2 = args[0]
             c1 = ch[f]
