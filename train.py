@@ -9,6 +9,6 @@ model = YOLO("/kaggle/working/YOLOv8_SEAttention/ultralytics/cfg/models/v8/yolov
 # Use the model
 if __name__ == '__main__':
     # Use the model
-    results = model.train(data='/kaggle/input/voc-yolo/VOC.yaml', epochs=300, device=[0, 1], batch=-1, cache=True, workers=8, patience=50)  # 训练模型
+    results = model.train(data='/kaggle/working/voc-yolo/VOC.yaml', epochs=300, device=[0, 1], batch=-1, cache=True, workers=8, patience=50)  # 训练模型
     # 将模型转为onnx格式
     # success = model.export(format='onnx')
